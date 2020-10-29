@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.ContactForm {
+  display: flex;
+  flex-direction: column;
+  padding: 13px;
+  width: 233px;
+  font-family: "Roboto", sans-serif;
+  color: #646464;
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+label {
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 13px;
+}
+
+input {
+  display: block;
+  width: 233px;
+  height: 26px;
+  margin-top: 8px;
+  padding-left: 8px;
+}
+
+.button {
+  padding: 0 16px;
+  margin: 0 auto;
+  height: 34px;
+  width: 144px;
+  line-height: 34px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #26c6c1;
+  border-color: #26c6c1;
+  outline: none;
+}
+
+.button:hover {
+  color: #fff;
+  border-color: #2dbbb6;
+  background-color: #2dbbb6;
+  cursor: pointer;
+  outline: none;
+}

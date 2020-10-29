@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.Filter {
+  display: flex;
+  flex-direction: column;
+  padding: 13px;
+  width: 233px;
+  font-family: "Roboto", sans-serif;
+  color: #646464;
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
