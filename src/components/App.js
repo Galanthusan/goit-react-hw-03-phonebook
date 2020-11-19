@@ -40,16 +40,16 @@ export default class App extends Component {
       number,
     };
 
+    if (contacts.some((contact) => contact.name === name)) {
+      alert(`${name} is already in contacts.`);
+      return;
+    }
+
     this.setState((prevState) => {
       return {
         contacts: [...prevState.contacts, contact],
       };
     });
-
-    if (contacts.some((contact) => contact.name === name)) {
-      alert(`${name} is already in contacts.`);
-      return;
-    }
   };
 
   changeFilter = (filter) => {
