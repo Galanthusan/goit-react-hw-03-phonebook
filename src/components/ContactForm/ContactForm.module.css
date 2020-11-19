@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .ContactForm {
   display: flex;
   flex-direction: column;
   padding: 13px;
   width: 233px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #646464;
   border-radius: 3px;
   margin-bottom: 16px;
@@ -45,4 +45,10 @@ input {
   background-color: #2dbbb6;
   cursor: pointer;
   outline: none;
+}
+
+.button:disabled {
+  border-color: #b4b4b4;
+  background-color: #b4b4b4;
+  cursor: default;
 }

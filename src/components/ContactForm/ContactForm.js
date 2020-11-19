@@ -1,24 +1,24 @@
-import React, { Component } from "react";
-import styles from "./ContactForm.module.css";
+import React, { Component } from 'react';
+import styles from './ContactForm.module.css';
 
 export default class ContactForm extends Component {
   state = {
-    name: "",
-    number: "",
+    name: '',
+    number: '',
   };
 
   handleChangeName = (e) => {
     const regex = /^[A-Za-z \u0400-\u04FF]*$/;
     const name = e.target.value;
-    if (name === "" || regex.test(name)) {
+    if (name === '' || regex.test(name)) {
       this.setState({ name });
     }
   };
 
   handleChangeNumber = (e) => {
-    const regex = /^[\d() +-]+$/;
+    const regex = /^[0-9()+-]*$/;
     const number = e.target.value;
-    if (number === "" || regex.test(number)) {
+    if (number === '' || regex.test(number)) {
       this.setState({ number });
     }
   };
@@ -27,7 +27,7 @@ export default class ContactForm extends Component {
     e.preventDefault();
     const { name, number } = this.state;
     this.props.onAddContact(name, number);
-    this.setState({ name: "", number: "" });
+    this.setState({ name: '', number: '' });
   };
 
   render() {
@@ -38,23 +38,27 @@ export default class ContactForm extends Component {
           Name
           <input
             className={styles.input}
-            type="text"
+            type='text'
             value={name}
             onChange={this.handleChangeName}
-            name="name"
+            name='name'
           ></input>
         </label>
         <label className={styles.label}>
           Number
           <input
             className={styles.input}
-            type="text"
+            type='text'
             value={number}
             onChange={this.handleChangeNumber}
-            name="number"
+            name='number'
           ></input>
         </label>
-        <button className={styles.button} type="submit">
+        <button
+          className={styles.button}
+          type='submit'
+          disabled={!name || !number}
+        >
           Add contact
         </button>
       </form>

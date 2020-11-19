@@ -1,23 +1,23 @@
-import React, { Component } from "react";
-import { v4 as uuidv4 } from "uuid";
-import styles from "./App.module.css";
-import ContactForm from "./ContactForm/ContactForm";
-import ContactList from "./ContactList/ContactList";
-import Filter from "./Filter/Filter";
+import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import styles from './App.module.css';
+import ContactForm from './ContactForm/ContactForm';
+import ContactList from './ContactList/ContactList';
+import Filter from './Filter/Filter';
 
 export default class App extends Component {
   state = {
     contacts: [
-      { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-      { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-      { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-      { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    filter: "",
+    filter: '',
   };
 
   componentDidMount() {
-    const persistedContacts = localStorage.getItem("contacts");
+    const persistedContacts = localStorage.getItem('contacts');
 
     if (persistedContacts) {
       this.setState({ contacts: JSON.parse(persistedContacts) });
@@ -28,7 +28,7 @@ export default class App extends Component {
     const { contacts } = this.state;
 
     if (prevState.contacts !== contacts) {
-      localStorage.setItem("contacts", JSON.stringify(contacts));
+      localStorage.setItem('contacts', JSON.stringify(contacts));
     }
   }
 
@@ -40,16 +40,15 @@ export default class App extends Component {
       number,
     };
 
-    if (contacts.find((contact) => contact.name === name)) {
-      console.log(name);
-      console.log(contact.name);
+    this.setState((prevState) => {
+      return {
+        contacts: [...prevState.contacts, contact],
+      };
+    });
+
+    if (contacts.some((contact) => contact.name === name)) {
       alert(`${name} is already in contacts.`);
-    } else {
-      this.setState((prevState) => {
-        return {
-          contacts: [...prevState.contacts, contact],
-        };
-      });
+      return;
     }
   };
 
